@@ -279,6 +279,7 @@ $("#book").onsubmit = e => {
 };
 const today = new Date().toISOString().slice(0,10);
 $("#from").min = today; $("#to").min = today;
+if (new URLSearchParams(location.search).get("lang") === "ar") lang = "ar";
 render();
 </script>
 </body>

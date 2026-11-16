@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sahara Drive – Car Rental Sharjah (Demo Landing Page)</title>
+<meta name="description" content="Demo project: a bilingual English/Arabic (RTL) landing page for a fictional car rental company in Sharjah, UAE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1720;--card:#16212d;--line:#243243;--ink:#eef3f8;--muted:#9fb0c2;--gold:#f2b13b;--gold-d:#d9961f;--ok:#2ecc71}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+html[lang="ar"] body{font-family:"Cairo",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+.demo-bar{background:var(--gold);color:#1b1305;text-align:center;font-size:13px;font-weight:600;padding:8px 16px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(15,23,32,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.logo{font-weight:800;font-size:21px;letter-spacing:.3px}
+.logo b{color:var(--gold)}
+.links{display:flex;gap:26px;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.nav-r{display:flex;gap:10px;align-items:center}
+.btn{display:inline-block;background:var(--gold);color:#1b1305;font-weight:700;border:0;border-radius:10px;padding:11px 20px;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:var(--gold-d)}
+.ghost{background:none;border:1.5px solid var(--line);color:var(--ink);border-radius:10px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer}
+.ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero{padding:70px 0 60px;background:radial-gradient(900px 400px at 85% 10%,rgba(242,177,59,.18),transparent 60%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.tag{display:inline-block;background:rgba(242,177,59,.12);color:var(--gold);border:1px solid rgba(242,177,59,.35);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+h1{font-size:clamp(32px,4.6vw,54px);line-height:1.12;margin:16px 0 14px;font-weight:800}
+h1 span{color:var(--gold)}
+.lead{color:var(--muted);font-size:18px;max-width:540px}
+.points{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14.5px}
+.points li::before{content:"✓ ";color:var(--ok);font-weight:700}
+.book{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.book h2{margin:0 0 4px;font-size:20px}
+.book p{margin:0 0 16px;color:var(--muted);font-size:14px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 5px}
+input,select,textarea{width:100%;background:#0f1822;border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:11px 12px;font:inherit;font-size:15px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.book .btn{width:100%;margin-top:16px;padding:13px}
+.ok-msg{display:none;margin-top:12px;background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.4);color:#bff0d2;padding:10px 12px;border-radius:10px;font-size:14px}
+section{padding:70px 0}
+.sec-h{text-align:center;max-width:620px;margin:0 auto 38px}
+.sec-h h2{font-size:clamp(26px,3.2vw,36px);margin:0 0 8px}
+.sec-h p{color:var(--muted);margin:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card .ic{font-size:28px}
+.card h3{margin:10px 0 6px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.car{display:flex;flex-direction:column}
+.car .pic{height:140px;border-radius:14px;background:linear-gradient(135deg,#1f2d3c,#2a3c50);display:flex;align-items:center;justify-content:center;font-size:64px;margin-bottom:14px}
+.car .meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin:6px 0 14px}
+.price{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.price b{font-size:24px;color:var(--gold)}
+.price small{color:var(--muted)}
+.steps{counter-reset:s}
+.step{position:relative;padding-top:52px}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:18px;inset-inline-start:22px;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1b1305;font-weight:800;display:flex;align-items:center;justify-content:center}
+.faq{max-width:760px;margin:0 auto}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin:10px 0 0}
+.cta-band{background:linear-gradient(120deg,#f2b13b,#e48a1a);color:#1b1305;border-radius:24px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cta-band h2{margin:0;font-size:clamp(22px,3vw,30px)}
+.cta-band .btn{background:#1b1305;color:#fff}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;padding:28px 0;text-align:center}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  .links{display:none}
+}
+@media (max-width:480px){
+  .row{grid-template-columns:1fr}
+  .cta-band{padding:26px}
+  nav .btn{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar" data-t="demo"></div>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Sahara <b>Drive</b></a>
+    <div class="links">
+      <a href="#fleet" data-t="navFleet"></a><a href="#how" data-t="navHow"></a><a href="#faq" data-t="navFaq"></a>
+    </div>
+    <div class="nav-r">
+      <button class="ghost" id="lang" type="button">العربية</button>
+      <a class="btn" href="#book" data-t="navBook"></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="tag" data-t="tag"></span>
+      <h1 data-th="h1"></h1>
+      <p class="lead" data-t="lead"></p>
+      <ul class="points"><li data-t="p1"></li><li data-t="p2"></li><li data-t="p3"></li><li data-t="p4"></li></ul>
+    </div>
+    <form class="book" id="book" novalidate>
+      <h2 data-t="bookT"></h2>
+      <p data-t="bookP"></p>
+      <label for="car" data-t="lCar"></label>
+      <select id="car"></select>
+      <div class="row">
+        <div><label for="from" data-t="lFrom"></label><input type="date" id="from" required></div>
+        <div><label for="to" data-t="lTo"></label><input type="date" id="to" required></div>
+      </div>
+      <label for="name" data-t="lName"></label>
+      <input id="name" required>
+      <label for="phone" data-t="lPhone"></label>
+      <input id="phone" type="tel" inputmode="tel" dir="ltr" placeholder="05X XXX XXXX" required>
+      <button class="btn" type="submit" data-t="send"></button>
+      <div class="ok-msg" id="ok" role="status"></div>
+    </form>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h"><h2 data-t="whyT"></h2><p data-t="whyP"></p></div>
+    <div class="grid3">
+      <div class="card"><div class="ic">💰</div><h3 data-t="w1t"></h3><p data-t="w1p"></p></div>
+      <div class="card"><div class="ic">🚗</div><h3 data-t="w2t"></h3><p data-t="w2p"></p></div>
+      <div class="card"><div class="ic">🕑</div><h3 data-t="w3t"></h3><p data-t="w3p"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fleet">
+  <div class="wrap">
+    <div class="sec-h"><h2 data-t="fleetT"></h2><p data-t="fleetP"></p></div>
+    <div class="grid3" id="cars"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-h"><h2 data-t="howT"></h2></div>
+    <div class="grid3 steps">
+      <div class="card step"><h3 data-t="s1t"></h3><p data-t="s1p"></p></div>
+      <div class="card step"><h3 data-t="s2t"></h3><p data-t="s2p"></p></div>
+      <div class="card step"><h3 data-t="s3t"></h3><p data-t="s3p"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-h"><h2 data-t="faqT"></h2></div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band"><h2 data-t="ctaT"></h2><a class="btn" href="#book" data-t="navBook"></a></div>
+  </div>
+</section>
+
+<footer><div class="wrap" data-t="footer"></div></footer>
+
+<script>
+const T = {
+ en:{
+  demo:"Demo project by Oyeranmi O. – Sahara Drive is a fictional company. Prices are examples only.",
+  navFleet:"Our cars", navHow:"How it works", navFaq:"FAQ", navBook:"Book now",
+  tag:"Car rental in Sharjah, Dubai & Ajman",
+  h1:"Rent a clean, reliable car <span>delivered to your door</span>",
+  lead:"Daily, weekly and monthly rentals with clear prices, full insurance and free delivery anywhere in Sharjah.",
+  p1:"No hidden fees", p2:"Free delivery in Sharjah", p3:"24/7 WhatsApp support", p4:"Pay by card or cash",
+  bookT:"Get a quote in 1 minute", bookP:"Choose a car and dates. We reply on WhatsApp within 15 minutes.",
+  lCar:"Car", lFrom:"Pick-up date", lTo:"Return date", lName:"Full name", lPhone:"Mobile number (UAE)",
+  send:"Request my quote",
+  ok:"✅ Thank you, {name}! Request received for {car}. (Demo – no data is sent or stored.)",
+  err:"Please fill in all fields, and make sure the return date is after the pick-up date.",
+  whyT:"Why drivers choose Sahara Drive", whyP:"Simple renting, honest prices and fast support – in English and Arabic.",
+  w1t:"Clear prices", w1p:"The price you see includes insurance and VAT. Deposit is returned within 14 days.",
+  w2t:"Well-kept cars", w2p:"Every car is cleaned and checked before each rental. Most models are 2024 or newer.",
+  w3t:"Fast delivery", w3p:"We bring the car to your home, hotel or office – usually within 2 hours.",
+  fleetT:"Popular cars", fleetP:"Example daily prices. Weekly and monthly plans are cheaper.",
+  perDay:"/ day", seats:"seats", auto:"Automatic", choose:"Choose",
+  howT:"How it works",
+  s1t:"Choose your car", s1p:"Pick a model and your dates in the form above.",
+  s2t:"Confirm on WhatsApp", s2p:"Send a photo of your licence and Emirates ID or passport.",
+  s3t:"We deliver", s3p:"Sign the short agreement at handover and drive away.",
+  faqT:"Questions & answers",
+  faq:[
+   ["What documents do I need?","UAE residents: Emirates ID and UAE driving licence. Visitors: passport, visit visa page and a home-country or international driving licence."],
+   ["Is there a deposit?","Yes. AED 1,000 for economy and SUV cars, AED 2,500 for luxury cars. It is returned within 14 days after the rental."],
+   ["Can I drive to other emirates?","Yes, all our cars can be driven anywhere in the UAE. Driving to Oman is not allowed."],
+   ["What is the minimum age?","21 years for economy cars and 25 years for luxury cars."]
+  ],
+  ctaT:"Ready to drive today?",
+  footer:"© Sahara Drive (fictional) · Sharjah, UAE · Demo landing page built by Oyeranmi O. to show a bilingual English/Arabic (RTL) website."
+ },
+ ar:{
+  demo:"مشروع تجريبي من إعداد أويرانمي أ. – شركة صحارى درايف شركة وهمية، والأسعار للتوضيح فقط.",
+  navFleet:"سياراتنا", navHow:"كيف نعمل", navFaq:"الأسئلة الشائعة", navBook:"احجز الآن",
+  tag:"تأجير سيارات في الشارقة ودبي وعجمان",
+  h1:"استأجر سيارة نظيفة وموثوقة <span>تصلك حتى باب بيتك</span>",
+  lead:"إيجار يومي وأسبوعي وشهري بأسعار واضحة وتأمين شامل وتوصيل مجاني إلى أي مكان في الشارقة.",
+  p1:"بدون رسوم مخفية", p2:"توصيل مجاني في الشارقة", p3:"دعم عبر واتساب على مدار الساعة", p4:"الدفع بالبطاقة أو نقدًا",
+  bookT:"احصل على عرض سعر خلال دقيقة", bookP:"اختر السيارة والتواريخ، وسنرد عليك عبر واتساب خلال 15 دقيقة.",
+  lCar:"السيارة", lFrom:"تاريخ الاستلام", lTo:"تاريخ الإرجاع", lName:"الاسم الكامل", lPhone:"رقم الجوال (الإمارات)",
+  send:"اطلب عرض السعر",
+  ok:"✅ شكرًا لك يا {name}! تم استلام طلبك لسيارة {car}. (نسخة تجريبية – لا يتم إرسال أو حفظ أي بيانات.)",
+  err:"يرجى تعبئة جميع الحقول، والتأكد من أن تاريخ الإرجاع بعد تاريخ الاستلام.",
+  whyT:"لماذا يختار السائقون صحارى درايف", whyP:"إيجار سهل وأسعار صادقة ودعم سريع – بالعربية والإنجليزية.",
+  w1t:"أسعار واضحة", w1p:"السعر المعروض يشمل التأمين وضريبة القيمة المضافة. يُعاد التأمين النقدي خلال 14 يومًا.",
+  w2t:"سيارات بحالة ممتازة", w2p:"ننظف كل سيارة ونفحصها قبل كل إيجار. معظم الطرازات 2024 أو أحدث.",
+  w3t:"توصيل سريع", w3p:"نوصل السيارة إلى منزلك أو فندقك أو مكتبك – عادةً خلال ساعتين.",
+  fleetT:"السيارات الأكثر طلبًا", fleetP:"أسعار يومية للتوضيح. الباقات الأسبوعية والشهرية أرخص.",
+  perDay:"/ يوم", seats:"مقاعد", auto:"أوتوماتيك", choose:"اختر",
+  howT:"كيف نعمل",
+  s1t:"اختر سيارتك", s1p:"اختر الطراز والتواريخ من النموذج في الأعلى.",
+  s2t:"أكّد عبر واتساب", s2p:"أرسل صورة رخصة القيادة والهوية الإماراتية أو جواز السفر.",
+  s3t:"نوصل إليك", s3p:"وقّع العقد المختصر عند الاستلام وانطلق.",
+  faqT:"أسئلة وأجوبة",
+  faq:[
+   ["ما المستندات المطلوبة؟","للمقيمين: الهوية الإماراتية ورخصة قيادة إماراتية. للزوار: جواز السفر وصفحة التأشيرة ورخصة قيادة من بلدك أو رخصة دولية."],
+   ["هل يوجد تأمين نقدي؟","نعم، 1,000 درهم للسيارات الاقتصادية والعائلية، و2,500 درهم للسيارات الفاخرة. يُعاد خلال 14 يومًا بعد انتهاء الإيجار."],
+   ["هل يمكنني القيادة إلى إمارات أخرى؟","نعم، يمكن قيادة جميع سياراتنا في أي مكان داخل الإمارات. لا يُسمح بالقيادة إلى عُمان."],
+   ["ما الحد الأدنى للعمر؟","21 عامًا للسيارات الاقتصادية و25 عامًا للسيارات الفاخرة."]
+  ],
+  ctaT:"جاهز للانطلاق اليوم؟",
+  footer:"© صحارى درايف (شركة وهمية) · الشارقة، الإمارات · صفحة هبوط تجريبية من إعداد أويرانمي أ. لعرض موقع ثنائي اللغة بالعربية والإنجليزية (من اليمين إلى اليسار)."
+ }
+};
+const CARS = [
+ {icon:"🚙", en:"Nissan Sunny", ar:"نيسان صني", cls:{en:"Economy",ar:"اقتصادية"}, seats:5, price:89},
+ {icon:"🚘", en:"Toyota Camry", ar:"تويوتا كامري", cls:{en:"Family sedan",ar:"سيدان عائلية"}, seats:5, price:139},
+ {icon:"🚐", en:"Mitsubishi Pajero", ar:"ميتسوبيشي باجيرو", cls:{en:"SUV · 7 seats",ar:"دفع رباعي · 7 مقاعد"}, seats:7, price:199},
+];
+let lang = "en";
+const $ = s => document.querySelector(s);
+function render(){
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-t]").forEach(e => e.textContent = t[e.dataset.t]);
+  document.querySelectorAll("[data-th]").forEach(e => e.innerHTML = t[e.dataset.th]);
+  $("#lang").textContent = lang === "ar" ? "English" : "العربية";
+  const sel = $("#car"), cur = sel.selectedIndex;
+  sel.innerHTML = CARS.map(c => `<option>${c[lang]} – ${c.price} ${lang==="ar"?"درهم":"AED"} ${t.perDay}</option>`).join("");
+  if (cur >= 0) sel.selectedIndex = cur;
+  $("#cars").innerHTML = CARS.map((c,i) => `
+    <div class="card car">
+      <div class="pic" aria-hidden="true">${c.icon}</div>
+      <h3>${c[lang]}</h3>
+      <div class="meta"><span>${c.cls[lang]}</span><span>👤 ${c.seats} ${t.seats}</span><span>⚙️ ${t.auto}</span></div>
+      <div class="price"><span><b>${c.price}</b> <small>${lang==="ar"?"درهم":"AED"} ${t.perDay}</small></span>
+      <a class="btn" href="#book" data-i="${i}">${t.choose}</a></div>
+    </div>`).join("");
+  document.querySelectorAll("#cars [data-i]").forEach(a => a.onclick = () => { $("#car").selectedIndex = +a.dataset.i; });
+  $("#faqList").innerHTML = t.faq.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("");
+  $("#ok").style.display = "none";
+}
+$("#lang").onclick = () => { lang = lang === "en" ? "ar" : "en"; render(); };
+$("#book").onsubmit = e => {
+  e.preventDefault();
+  const t = T[lang], f = $("#from").value, to = $("#to").value, name = $("#name").value.trim(), ph = $("#phone").value.trim();
+  const ok = $("#ok");
+  ok.style.display = "block";
+  if (!f || !to || !name || !ph || to < f){ ok.textContent = t.err; ok.style.background = "rgba(231,76,60,.12)"; ok.style.borderColor = "rgba(231,76,60,.45)"; ok.style.color = "#ffd0ca"; return; }
+  ok.removeAttribute("style"); ok.style.display = "block";
+  ok.textContent = t.ok.replace("{name}", name).replace("{car}", CARS[$("#car").selectedIndex][lang]);
+  e.target.reset();
+};
+const today = new Date().toISOString().slice(0,10);
+$("#from").min = today; $("#to").min = today;
+render();
+</script>
+</body>
+</html>

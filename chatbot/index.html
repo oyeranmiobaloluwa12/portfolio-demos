@@ -254,6 +254,15 @@ $("#heroChat").onclick = openChat;
 $("#langBtn").onclick = () => applyLang(lang === "en" ? "ar" : "en");
 $("#form").onsubmit = e => { e.preventDefault(); send(input.value); input.value = ""; };
 applyLang("en");
+// ?demo=en or ?demo=ar plays a short sample conversation (used for portfolio screenshots)
+(function(){
+  const d = new URLSearchParams(location.search).get("demo");
+  if (!d) return;
+  const script = d === "ar" ? ["السلام عليكم، متى تفتحون؟","كم سعر الكرواسون؟"] : ["Do you deliver to Dubai?","I want a birthday cake"];
+  if (d === "ar") applyLang("ar");
+  openChat();
+  script.forEach((q,i) => setTimeout(() => send(q), 1600 + i * 2600));
+})();
 </script>
 </body>
 </html>
